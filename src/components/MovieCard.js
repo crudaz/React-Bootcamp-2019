@@ -40,8 +40,10 @@ class MovieCard extends React.Component {
   }
   
   render() {
-    const { id, title, year, image, overview, deleteMovie } = this.props
-    return <div className='movie-container'>   
+    const { id, title, release_date, poster_path, overview, deleteMovie } = this.props
+    const imageURL = 'https://image.tmdb.org/t/p/original';
+
+    return <div className='movie-container'>
         <div className='favourite-container'>
             <button onClick={this.handleCheck} className='favourite-button'>
                 <span className={`fa fa-star favourite-star ${this.state.checked ? 'checked': ''}`}></span>
@@ -51,9 +53,9 @@ class MovieCard extends React.Component {
             </button>
         </div>
       <h1>{title}</h1>
-      <div>{year}</div>
+      <div>{release_date}</div>
       <div className='overview-container'>
-        <img className='overview-img' src={image} alt='Movie' />
+        <img className='overview-img' src={imageURL+poster_path} alt='Movie' />
         <p>{overview}</p>
       </div>
     </div>
